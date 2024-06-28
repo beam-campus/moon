@@ -10,7 +10,7 @@ defmodule Moon.MixProject do
     [
       app: :moon,
       version: @version,
-      elixir: "~> 1.11",
+      elixir: "~> 1.18.0-dev",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers() ++ [:surface],
       start_permanent: Mix.env() == :prod,
@@ -74,7 +74,7 @@ defmodule Moon.MixProject do
     [
       {:phoenix, ">= 1.6.15"},
       {:phoenix_live_view, "~> 0.20"},
-      {:phoenix_html, "~> 3.0"},
+      {:phoenix_html, "~> 4.0"},
       {:phoenix_live_dashboard, ">= 0.7.0"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.1"},
@@ -83,10 +83,11 @@ defmodule Moon.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:vega_lite, "~> 0.1.0"},
-      {:surface, "~> 0.11.0"},
+      {:surface, git: "git@github.com:beam-campus/surface.git"},
+
       {:timex, "~> 3.6"},
       {:distillery, "~> 2.1"},
-      {:moon_icons, "~> 0.1"},
+      {:moon_icons, git: "git@github.com:beam-campus/moon-icons.git"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:tails, "~> 0.1.7"},
 
@@ -95,10 +96,12 @@ defmodule Moon.MixProject do
       {:floki, ">= 0.27.0", only: :test},
       {:snapshy, "~> 0.3.0", only: :test},
 
+      # {:surface, "~> 0.11.0"},
+
       # dev
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:surface_formatter, "~> 0.7.0", only: [:dev, :test], runtime: false},
+      {:surface_formatter, git: "git@github.com:beam-campus/surface_formatter.git", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test], runtime: false}
     ]
